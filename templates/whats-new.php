@@ -4,6 +4,34 @@
  */
 $changelog = [
     [
+        'version'  => 'Version 3.11.0',
+        'released' => '2024-05-10',
+        'changes'  => [
+            'Fix'         => [
+                [
+                    'title'       => 'The status of sub-orders does not update to completed if it contains only virtual products.',
+                    'description' => '',
+                ],
+            ],
+        ],
+    ],
+    [
+        'version'  => 'Version 3.10.4',
+        'released' => '2024-04-25',
+        'changes'  => [
+            'Fix'         => [
+                [
+                    'title'       => 'Vendor dashboard Order status filter menu displayed a duplicate border',
+                    'description' => '',
+                ],
+                [
+                    'title'       => 'Vendor dashboard withdraw page display get hidden',
+                    'description' => '',
+                ],
+            ],
+        ],
+    ],
+    [
         'version'  => 'Version 3.10.3',
         'released' => '2024-04-17',
         'changes'  => [
