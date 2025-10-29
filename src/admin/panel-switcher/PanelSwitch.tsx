@@ -14,7 +14,7 @@ const PanelSwitch = () => {
     const supportedKeys = wp.hooks.applyFilters(
         // Define an array with a filter hook for supported URL keys.
         'dokan_admin_panel_switch_supported_keys',
-        [ 'dashboard', 'withdraw', 'vendors' ]
+        [ 'dashboard', 'withdraw', 'vendors', 'store-reviews' ]
     );
 
     // Get the current URL hash path segments.
@@ -59,7 +59,7 @@ const PanelSwitch = () => {
     const page = new URLSearchParams( window.location.search ).get( 'page' );
 
     return (
-        <div className="new-dashboard-url pt-8 text-sm font-medium">
+        <span className="new-dashboard-url my-8 text-sm font-medium">
             { page !== 'dokan-dashboard'
                 ? sprintf(
                       /* translators: %s: The base URL of the current page. For example, "dashboard" for the dashboard page. */
@@ -78,7 +78,7 @@ const PanelSwitch = () => {
             >
                 { __( 'Click Here', 'dokan-lite' ) }
             </a>
-        </div>
+        </span>
     );
 };
 

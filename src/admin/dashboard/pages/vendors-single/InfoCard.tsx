@@ -1,12 +1,12 @@
 import { PaymentDetails, Vendor } from '@dokan/definitions/dokan-vendors';
-import { __ } from "@wordpress/i18n";
+import { __ } from '@wordpress/i18n';
 import { DateTimeHtml } from '../../../../components';
 import { humanTimeDiff } from '@wordpress/date';
 import SocialLinks from './SocialLinks';
 import { Slot } from '@wordpress/components';
 import { PluginArea } from '@wordpress/plugins';
-import { CircleCheck, Clock, Mail, Phone } from "lucide-react";
-import { truncate } from "@dokan/utilities";
+import { CircleCheck, Clock, Mail, Phone } from 'lucide-react';
+import { truncate } from '@dokan/utilities';
 import { DokanTooltip as Tooltip } from '@dokan/components';
 
 export interface InfoCardProps {
@@ -91,10 +91,10 @@ const InfoCard = ( { vendor }: InfoCardProps ) => {
             />
 
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Registered Since:', 'dokan-lite' ) }
                 </h4>
-                <div className="text-neutral-700 text-sm font-normal flex items-center gap-1">
+                <div className="text-[#393939] text-sm font-normal flex items-center gap-1">
                     <DateTimeHtml.Date date={ vendor.registered } />
                     <Tooltip
                         content={ humanTimeDiff(
@@ -135,43 +135,41 @@ const InfoCard = ( { vendor }: InfoCardProps ) => {
                 </div>
             </div>
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Contact:', 'dokan-lite' ) }
                 </h4>
-                <p className="text-neutral-700 text-sm font-normal flex items-center gap-2 mt-1">
+                <p className="text-[#393939] text-sm font-normal flex items-center gap-2 mt-1">
                     <Phone size="15" />
                     { vendor?.phone || __( '-', 'dokan-lite' ) }
                 </p>
-                <p className="text-neutral-700 text-sm font-normal flex items-center gap-2 mt-1">
+                <p className="text-[#393939] text-sm font-normal flex items-center gap-2 mt-1">
                     <Mail size="15" />
                     <Tooltip
                         content={ vendor?.email }
-                        direction="top"
-                        contentClass="bg-gray-800 text-white p-2 rounded-md"
                     >
                         <p>
                             { vendor?.email
-                                ? truncate( vendor?.email, 40 )
+                                ? truncate( vendor?.email, 30 )
                                 : __( '-', 'dokan-lite' ) }
                         </p>
                     </Tooltip>
                 </p>
             </div>
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Commission Type:', 'dokan-lite' ) }
                 </h4>
-                <p className="text-neutral-700 text-sm font-normal">
+                <p className="text-[#393939] text-sm font-normal">
                     { vendor?.admin_commission_type === 'fixed'
                         ? __( 'Fixed', 'dokan-lite' )
                         : __( 'Category Based', 'dokan-lite' ) }
                 </p>
             </div>
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Product Publishing:', 'dokan-lite' ) }
                 </h4>
-                <p className="text-neutral-700 text-sm font-normal flex items-center gap-2">
+                <p className="text-[#393939] text-sm font-normal flex items-center gap-2">
                     { vendor?.trusted ? (
                         <>
                             <CircleCheck size="15" />
@@ -182,7 +180,7 @@ const InfoCard = ( { vendor }: InfoCardProps ) => {
                         </>
                     ) : (
                         <>
-                            <Clock size={15} />
+                            <Clock size={ 15 } />
                             <span className="">
                                 { __( 'Requires Review', 'dokan-lite' ) }
                             </span>
@@ -191,19 +189,21 @@ const InfoCard = ( { vendor }: InfoCardProps ) => {
                 </p>
             </div>
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Subscription:', 'dokan-lite' ) }
                 </h4>
-                <p className="text-neutral-700 text-sm font-normal">
-                    { __( 'No Subscription Added', 'dokan-lite' ) }
+                <p className="text-[#393939] text-sm font-normal">
+                    { vendor?.current_subscription?.label
+                        ? truncate( vendor?.current_subscription?.label, 30 )
+                        : __( 'No Subscription Added', 'dokan-lite' ) }
                 </p>
             </div>
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Payment Method:', 'dokan-lite' ) }
                 </h4>
                 { vendor?.payment ? (
-                    <p className="text-neutral-700 text-sm font-normal truncate">
+                    <p className="text-[#393939] text-sm font-normal truncate">
                         { paymentMethods( vendor?.payment )
                             .filter( ( method ) => method.isActive )
                             .map( ( method ) => method.name )
@@ -211,19 +211,19 @@ const InfoCard = ( { vendor }: InfoCardProps ) => {
                             __( 'No Payment Method Added', 'dokan-lite' ) }
                     </p>
                 ) : (
-                    <p className="text-neutral-700 text-sm font-normal">
+                    <p className="text-[#393939] text-sm font-normal">
                         { __( 'No Payment Method Added', 'dokan-lite' ) }
                     </p>
                 ) }
             </div>
             <div className="mb-4">
-                <h4 className="text-zinc-500 text-xs font-normal mb-2">
+                <h4 className="text-[#828282] text-xs font-normal mb-2">
                     { __( 'Social Links:', 'dokan-lite' ) }
                 </h4>
                 { vendor?.social ? (
                     <SocialLinks social={ vendor.social } />
                 ) : (
-                    <p className="text-neutral-700 text-sm font-normal">
+                    <p className="text-[#393939] text-sm font-normal">
                         { __( 'No Social Links Added', 'dokan-lite' ) }
                     </p>
                 ) }

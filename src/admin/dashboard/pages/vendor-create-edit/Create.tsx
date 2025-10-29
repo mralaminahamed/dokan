@@ -1,4 +1,4 @@
-import Form from './Form';
+import Form from './form';
 import { useDispatch, useSelect } from '@wordpress/data';
 import store from '../../../../stores/vendors';
 import { useEffect, useState } from '@wordpress/element';
@@ -124,9 +124,9 @@ function Create( props: any ) {
                 </div>
 
                 { /*Add new vendor header*/ }
-                <div className="flex flex-row">
+                <div className="flex flex-row mt-[24px]">
                     <div className="sm:w-full md:w-1/2">
-                        <h1>{ __( 'Add New Vendor', 'dokan-lite' ) }</h1>
+                        <h1 className="text-[24px] text-[#25252D] font-bold">{ __( 'Add New Vendor', 'dokan-lite' ) }</h1>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,8 @@ function Create( props: any ) {
                     <DokanButton
                         variant="secondary"
                         onClick={ () =>
-                            ( window.location.href = config.dokanVendorsListUrl )
+                            ( window.location.href =
+                                config.dokanVendorsListUrl )
                         }
                     >
                         { __( 'Cancel', 'dokan-lite' ) }
